@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Search Weather by Zip Code | Weather Provided by Yahoo!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+     
+     <style>
+     
+     .forecast-img {height: 60px; width: 60px;}
+     .table>tbody>tr>td {vertical-align: middle !important;}
+     
+     .label-success a {color: #fff; border-bottom: 1px dotted;}
+     .label-success a:hover {text-decoration: none; border-bottom: 1px solid;}
+     
+     .page-header h1 {font-size: 350%;}
+     
+     </style>
+     </head>
+     
+     
+     
+    <body>
+  
+    <div class="container">
+       
+    	    
+	    <div class="clear">
+	    
+	    
+	    <div class="page-header">
+			<h1><span class="city empty"></span> <span class="state empty"></span> <span id="temp" class="empty"></span> <small>/ <span id="text" class="empty"></span></small></h1>
+			<div class="pull-right"><span id="condition" class="empty"></span></div>
+
+			</div>
+	   <span class="label label-success">Not located in <span class="city empty"></span> <span class="state empty"></span>? <a href="#" data-toggle="modal" data-target="#myModal">Display weather for another zip code</a></small></span>
+	    
+	    <br /><br />
+
+
+	    
+	    
+	    <div class="panel panel-default">
+	    
+	    <div class="panel-heading"><h4>5 Day Forecast</h4></div>
+	    <div class="panel-body">
+	    <table class="table">
+	    	
+	    	<thead>
+		    	<th>Day</th>
+		    	<th>Date</th>
+		    	<th>High</th>
+		    	<th>Low</th>
+		    	<th>Forecast</th>
+		    	<th></th>
+	    	</thead>
+	    	
+		
+			
+			<tr>
+				<td class="empty" id="forecastday0"></td>
+				<td class="empty" id="forecastdate0"></td>
+				<td class="empty" id="forecasthigh0"></td>
+				<td class="empty" id="forecastlow0"></td>
+				<td class="empty" id="forecasttext0"></td>
+				<td class="empty" id="forecastcode0"></td>
+
+			</tr>
+			
+			<tr>
+				<td class="empty" id="forecastday1"></td>
+				<td class="empty" id="forecastdate1"></td>
+				<td class="empty" id="forecasthigh1"></td>
+				<td class="empty" id="forecastlow1"></td>
+				<td class="empty" id="forecasttext1"></td>
+				<td class="empty" id="forecastcode1"></td>
+
+			</tr>
+			
+			<tr>
+				<td class="empty" id="forecastday2"></td>
+				<td class="empty" id="forecastdate2"></td>
+				<td class="empty" id="forecasthigh2"></td>
+				<td class="empty" id="forecastlow2"></td>
+				<td class="empty" id="forecasttext2"></td>
+				<td class="empty" id="forecastcode2"></td>
+
+			</tr>
+			
+			<tr>
+				<td class="empty" id="forecastday3"></td>
+				<td class="empty" id="forecastdate3"></td>
+				<td class="empty" id="forecasthigh3"></td>
+				<td class="empty" id="forecastlow3"></td>
+				<td class="empty" id="forecasttext3"></td>
+				<td class="empty" id="forecastcode3"></td>
+
+			</tr>
+			
+			<tr>
+				<td class="empty" id="forecastday4"></td>
+				<td class="empty" id="forecastdate4"></td>
+				<td class="empty" id="forecasthigh4"></td>
+				<td class="empty" id="forecastlow4"></td>
+				<td class="empty" id="forecasttext4"></td>
+				<td class="empty" id="forecastcode4"></td>
+
+			</tr>
+			
+		</table>
+		
+		
+	    </div>
+
+		<div class="panel-footer"><span class="muted"><small>Weather provide by: Yahoo!</small></span></div>
+	    </div>
+
+	    	
+	    	
+	    </div>
+	    
+	    
+	    
+    </div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Search Weather by Zip Code</h4>
+      </div>
+      <div class="modal-body">
+      
+					 <input type="text" id="zipcode" class="form-control" placeholder="Ex. 97045">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" id="weatherSubmit" data-dismiss="modal" class="btn btn-primary">Search Weather</button>
+        </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+	<script src="js/site.js"></script>
+
+  </body>
+</html>
