@@ -38,13 +38,13 @@ function displayWeather(zip){
 	
 	
 				
-				
 		$.getJSON(query, function(data){
 				
 				//Check to make sure zipcode is valid based upon 
-				if ("City not found" === data.query.results.channel.item.title) {
-					cityNotFound();
+				if ( ("City not found" === data.query.results.channel.item.title) || (data ===[]) ) {
+					error();
 				}
+				
 								
 				//Empty and get ready for a new submission
 				$(".empty").empty();
@@ -75,9 +75,14 @@ function displayWeather(zip){
 		}// End Function
 		
 
-function cityNotFound(){
+//Display error message if the zipcode is wrong or if the return array is empty.
+function error(){
 
 	$(".error").show();
+	
+	//Return and displauy Default zip code
 	displayWeather(zip);
 		
 }//End of function		
+
+	
