@@ -8,8 +8,6 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
@@ -18,6 +16,7 @@
      <style>
      
      .forecast-img {height: 60px; width: 60px;}
+     .forecast-img-main {background-color: #fff;}
      .table>tbody>tr>td {vertical-align: middle !important;}
      
      .label-success a {color: #fff; border-bottom: 1px dotted;}
@@ -44,9 +43,9 @@
 	    <div class="clear">
 	    
 	    
-	    <div class="page-header">
-			<h1><span class="city empty"></span> <span class="state empty"></span> <span id="temp" class="empty"></span> <small>/ <span id="text" class="empty"></span></small></h1>
-			<div class="pull-right"><span id="condition" class="empty"></span></div>
+	    <div class="page-header"><div class="pull-right" ><span id="condition"></span></div>
+			<h1><span class="city"></span> <span class="state"></span> <span id="temp"></span> <small>/ <span id="text"></span></small></h1>
+			
 
 			</div>
 	   <span class="label label-success">Not located in <span class="city empty"></span> <span class="state empty"></span>? <a href="#" data-toggle="modal" data-target="#myModal">Display weather for another zip code</a></small></span>
@@ -74,52 +73,52 @@
 		
 			
 			<tr>
-				<td class="empty" id="forecastday0"></td>
-				<td class="empty" id="forecastdate0"></td>
-				<td class="empty" id="forecasthigh0"></td>
-				<td class="empty" id="forecastlow0"></td>
-				<td class="empty" id="forecasttext0"></td>
-				<td class="empty" id="forecastcode0"></td>
+				<td id="forecastday0"></td>
+				<td id="forecastdate0"></td>
+				<td id="forecasthigh0"></td>
+				<td id="forecastlow0"></td>
+				<td id="forecasttext0"></td>
+				<td id="forecastcode0"></td>
 
 			</tr>
 			
 			<tr>
-				<td class="empty" id="forecastday1"></td>
-				<td class="empty" id="forecastdate1"></td>
-				<td class="empty" id="forecasthigh1"></td>
-				<td class="empty" id="forecastlow1"></td>
-				<td class="empty" id="forecasttext1"></td>
-				<td class="empty" id="forecastcode1"></td>
+				<td id="forecastday1"></td>
+				<td id="forecastdate1"></td>
+				<td id="forecasthigh1"></td>
+				<td id="forecastlow1"></td>
+				<td id="forecasttext1"></td>
+				<td id="forecastcode1"></td>
 
 			</tr>
 			
 			<tr>
-				<td class="empty" id="forecastday2"></td>
-				<td class="empty" id="forecastdate2"></td>
-				<td class="empty" id="forecasthigh2"></td>
-				<td class="empty" id="forecastlow2"></td>
-				<td class="empty" id="forecasttext2"></td>
-				<td class="empty" id="forecastcode2"></td>
+				<td id="forecastday2"></td>
+				<td id="forecastdate2"></td>
+				<td id="forecasthigh2"></td>
+				<td id="forecastlow2"></td>
+				<td id="forecasttext2"></td>
+				<td id="forecastcode2"></td>
 
 			</tr>
 			
 			<tr>
-				<td class="empty" id="forecastday3"></td>
-				<td class="empty" id="forecastdate3"></td>
-				<td class="empty" id="forecasthigh3"></td>
-				<td class="empty" id="forecastlow3"></td>
-				<td class="empty" id="forecasttext3"></td>
-				<td class="empty" id="forecastcode3"></td>
+				<td id="forecastday3"></td>
+				<td id="forecastdate3"></td>
+				<td id="forecasthigh3"></td>
+				<td id="forecastlow3"></td>
+				<td id="forecasttext3"></td>
+				<td id="forecastcode3"></td>
 
 			</tr>
 			
 			<tr>
-				<td class="empty" id="forecastday4"></td>
-				<td class="empty" id="forecastdate4"></td>
-				<td class="empty" id="forecasthigh4"></td>
-				<td class="empty" id="forecastlow4"></td>
-				<td class="empty" id="forecasttext4"></td>
-				<td class="empty" id="forecastcode4"></td>
+				<td id="forecastday4"></td>
+				<td id="forecastdate4"></td>
+				<td id="forecasthigh4"></td>
+				<td id="forecastlow4"></td>
+				<td id="forecasttext4"></td>
+				<td id="forecastcode4"></td>
 
 			</tr>
 			
@@ -165,6 +164,7 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+	<script src="js/jquery.cookie.js"></script>
 	<script src="js/site.js"></script>
 
   </body>
