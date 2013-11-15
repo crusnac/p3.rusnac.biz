@@ -7,18 +7,20 @@ $(document).ready(function(){
 	
 		
 	//Check to see if a zip code has been set, if not set a default to display some weather
-	
+
 	if ($.cookie('zipcode')){
 		
+		//Set the zip to the cookie value.
 		var zip = $.cookie('zipcode');
 		displayWeather(zip);
-		
-		}else{
+	
+	//Set a Default zip so that there is defalt data. 
+	}else{
 		
 		var zip = "02138";
 		displayWeather(zip);
 		
-  }
+	}// End of If
 	
 	
 	
@@ -29,8 +31,8 @@ $(document).ready(function(){
 		//Set main zip variable based upon user input		
 		var zip = $('#zipcode').val();
 		
-		//Update ZipCode Cookie to save state of which zipcode has been entered
-		$.cookie("zipcode", zip);
+		//Update ZipCode Cookie to save state of which zipcode has been entered - expired 7 days
+		$.cookie("zipcode", zip, { expires: 7 });
 
 		//Send user input to function 
 		displayWeather($('#zipcode').val());
