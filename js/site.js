@@ -2,18 +2,39 @@
 //Set the zip code variable to be that will be used as part of the QUERY
 $(document).ready(function(){
 	
+	//Hide main error div
 	$(".error").hide();
-
 	
+		
 	//Check to see if a zip code has been set, if not set a default to display some weather
-	if (zip === undefined) {
+	
+	if ($.cookie('zipcode')){
+		
+		var zip = $.cookie('zipcode');
+		displayWeather(zip);
+		
+		}else{
+		
 		var zip = "02138";
 		displayWeather(zip);
-	}
+		
+  }
+	
+	
+	
 
 	//Pass the input as a variable.
 	$("#weatherSubmit").click(function(){
+		
+		//Set main zip variable based upon user input		
+		var zip = $('#zipcode').val();
+		
+		//Update ZipCode Cookie to save state of which zipcode has been entered
+		$.cookie("zipcode", zip);
+
+		//Send user input to function 
 		displayWeather($('#zipcode').val());
+		
 		});
 	});
 	
@@ -48,12 +69,10 @@ function displayWeather(zip){
 				if (("City not found" === data.query.results.channel.item.title) || data === []) {
 					processError();
 					}
-				
-								
+						
 				//Empty and get ready for a new submission
 				$(".error").hide();
 				
-
 				//Display Weather 
 				$(".city").html(data.query.results.channel.location.city+ ", ");
 				$(".state").html(data.query.results.channel.location.region).fadeIn('10000');
