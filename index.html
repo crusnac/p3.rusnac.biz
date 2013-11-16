@@ -44,54 +44,31 @@
 	    
     }
     
-    @media only screen and (max-width: 800px) {
-	
-	/* Force table to not be like tables anymore */
-	#no-more-tables table, 
-	#no-more-tables thead, 
-	#no-more-tables tbody, 
-	#no-more-tables th, 
-	#no-more-tables td, 
-	#no-more-tables tr { 
-		display: block; 
-	}
- 
-	/* Hide table headers (but not display: none;, for accessibility) */
-	#no-more-tables thead tr { 
-		position: absolute;
-		top: -9999px;
-		left: -9999px;
-	}
- 
-	#no-more-tables tr { border: 1px solid #ccc; }
- 
-	#no-more-tables td { 
-		/* Behave  like a "row" */
-		border: none;
-		border-bottom: 1px solid #eee; 
-		position: relative;
-		white-space: normal;
-		text-align:left;
-	}
- 
-	#no-more-tables td:before { 
-		/* Now like a table header */
-		position: absolute;
-		/* Top/left values mimic padding */
-		top: 6px;
-		left: 6px;
-		width: 45%; 
-		padding-right: 10px; 
-		white-space: nowrap;
-		text-align:left;
-		font-weight: bold;
-	}
- 
-	/*
-	Label the data
-	*/
-	#no-more-tables td:before { content: attr(data-title); }
-}
+    .row.styled {
+	    
+	    border-bottom: #f1f1f1 1px solid;
+    }
+    
+    .row h1 {
+	    margin-top: 10px;
+    }
+    
+    #forecastdate0, #forecastdate1, #forecastdate2, #forecastdate3, #forecastdate4 {
+	    padding-top: 20px;
+    }
+    
+    #forecasthigh0, #forecasthigh1, #forecasthigh2, #forecasthigh3, #forecasthigh4 {
+	    padding-top: 20px;
+    }
+    
+    #forecastlow0, #forecastlow1, #forecastlow2, #forecastlow3, #forecastlow4 {
+	    padding-top: 20px;
+    }
+    
+    #forecasttext0, #forecasttext1, #forecasttext2, #forecasttext3, #forecasttext4 {
+	    padding-top: 20px;
+    }
+    
     
      
      </style>
@@ -129,70 +106,58 @@
 	    
 	    <div class="panel-heading"><h4>5 Day Forecast</h4></div>
 	    <div class="panel-body">
-	    <table class="table" id="no-more-tables">
+	    
+	    
+			<div class="row styled">
 	    	
-	    	<thead>
-		    	<th>Day</th>
-		    	<th>Date</th>
-		    	<th>High</th>
-		    	<th>Low</th>
-		    	<th>Forecast</th>
-		    	<th></th>
-	    	</thead>
+	    		<div id="forecastday0" class="col-xs-2 col-md-3"></div>
+	    		<div id="forecastdate0" class="col-xs-2 col-md-3"></div>
+	    		<div id="forecasthigh0" class="col-xs-2 col-md-1"></div>
+	    		<div id="forecastlow0" class="col-xs-2 col-md-1"></div>
+	    		<div id="forecasttext0" class="col-xs-4 col-md-2"></div>
+	    		<div id="forecastcode0" class="col-xs-4 col-md-2"></div>
 	    	
-		
-			
-			<tr>
-				<td id="forecastday0"></td>
-				<td id="forecastdate0"></td>
-				<td id="forecasthigh0"></td>
-				<td id="forecastlow0"></td>
-				<td id="forecasttext0"></td>
-				<td id="forecastcode0"></td>
-
-			</tr>
-			
-			<tr>
-				<td id="forecastday1"></td>
-				<td id="forecastdate1"></td>
-				<td id="forecasthigh1"></td>
-				<td id="forecastlow1"></td>
-				<td id="forecasttext1"></td>
-				<td id="forecastcode1"></td>
-
-			</tr>
-			
-			<tr>
-				<td id="forecastday2"></td>
-				<td id="forecastdate2"></td>
-				<td id="forecasthigh2"></td>
-				<td id="forecastlow2"></td>
-				<td id="forecasttext2"></td>
-				<td id="forecastcode2"></td>
-
-			</tr>
-			
-			<tr>
-				<td id="forecastday3"></td>
-				<td id="forecastdate3"></td>
-				<td id="forecasthigh3"></td>
-				<td id="forecastlow3"></td>
-				<td id="forecasttext3"></td>
-				<td id="forecastcode3"></td>
-
-			</tr>
-			
-			<tr>
-				<td id="forecastday4"></td>
-				<td id="forecastdate4"></td>
-				<td id="forecasthigh4"></td>
-				<td id="forecastlow4"></td>
-				<td id="forecasttext4"></td>
-				<td id="forecastcode4"></td>
-
-			</tr>
-			
-		</table>
+			</div>
+	    
+	     	<div class="row styled">
+	    		<div id="forecastday1" class="col-xs-2 col-md-3"></div>
+	    		<div id="forecastdate1" class="col-xs-2 col-md-3"></div>
+	    		<div id="forecasthigh1" class="col-xs-2 col-md-1"></div>
+	    		<div id="forecastlow1" class="col-xs-2 col-md-1"></div>
+	    		<div id="forecasttext1" class="col-xs-4 col-md-2"></div>
+	    		<div id="forecastcode1" class="col-xs-4 col-md-2"></div>
+	    	</div>
+	    
+			<div class="row styled">
+	    		<div id="forecastday2" class="col-md-3"></div>
+	    		<div id="forecastdate2" class="col-md-3"></div>
+	    		<div id="forecasthigh2" class="col-md-1"></div>
+	    		<div id="forecastlow2" class="col-md-1"></div>
+	    		<div id="forecasttext2" class="col-md-2"></div>
+	    		<div id="forecastcode2" class="col-md-2"></div>
+	    	</div>
+	    	
+			<div class="row styled">
+	    		<div id="forecastday3" class="col-md-3"></div>
+	    		<div id="forecastdate3" class="col-md-3"></div>
+	    		<div id="forecasthigh3" class="col-md-1"></div>
+	    		<div id="forecastlow3" class="col-md-1"></div>
+	    		<div id="forecasttext3" class="col-md-2"></div>
+	    		<div id="forecastcode3" class="col-md-2"></div>
+	    	</div>
+	    	
+			<div class="row styled">
+	    		<div id="forecastday4" class="col-md-3"></div>
+	    		<div id="forecastdate4" class="col-md-3"></div>
+	    		<div id="forecasthigh4" class="col-md-1"></div>
+	    		<div id="forecastlow4" class="col-md-1"></div>
+	    		<div id="forecasttext4" class="col-md-2"></div>
+	    		<div id="forecastcode4" class="col-md-2"></div>
+	    	</div>
+	    
+	    
+	    
+	    
 		
 		
 	    </div>
