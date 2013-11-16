@@ -20,13 +20,13 @@
      .forecast-img-main {background-color: #fff;}
      .table>tbody>tr>td {vertical-align: middle !important;}
      
-     .label-success a {color: #fff; border-bottom: 1px dotted;}
-     .label-success a:hover {text-decoration: none; border-bottom: 1px solid;}
+     
      
      .error a {color: #fff; border-bottom: 1px dotted;}
      .error a:hover {text-decoration: none; border-bottom: 1px solid;}
      
      .page-header h1 {font-size: 350%;}
+     .page-header {border-bottom: none;}
      
      #error {margin-top: 10px;}
      
@@ -69,6 +69,16 @@
 	    padding-top: 20px;
     }
     
+    .location {
+	    background-color: #3fb618;
+	    color: #fff;
+	    font-size: 12px;
+	    padding: 10px;
+    }
+    
+    	.location a {color: #fff; border-bottom: 1px dotted; font-weight: 700;}
+     .location a:hover {text-decoration: none; border-bottom: 1px solid;}
+    
     
      
      </style>
@@ -85,19 +95,29 @@
     
        
     	    
-	    <div class="clear">
+	    <div class="row">
+	    <div class="page-header">
 	    
+		    <div class="col-md-9">
+		    	<h1><span class="city"></span> <span class="state"></span> <span id="temp"></span> <small>/ <span id="text"></span></small></h1>
+		    </div>
+		    
+		    <div class="col-md-3">
+		    	<div class="pull-right" ><span id="condition"></span></div>
+		    </div>
 	    
-	    <div class="page-header"><div class="pull-right" ><span id="condition"></span></div>
-			<h1><span class="city"></span> <span class="state"></span> <span id="temp"></span> <small>/ <span id="text"></span></small></h1>
-			
-
-			</div>
-	   <span class="label label-success">Not located in <span class="city empty"></span> <span class="state empty"></span>? <a href="#" data-toggle="modal" data-target="#myModal">Display weather for another zip code</a></small></span>
+	    </div>
+	    </div>	
+		<div class="row">
+			<div class="col-md-6">
+				<div class="location">
+				
+					Not located in <span class="city empty"></span> <span class="state empty"></span>? <a href="#" data-toggle="modal" data-target="#myModal">Search your Zipcode!</a></small>
+				</div>
+		   
+		   </div>
+	   </div>
 	   
-
-	    
-	    <br /><br />
 
 
 	    
