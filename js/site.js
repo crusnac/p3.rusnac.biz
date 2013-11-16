@@ -105,8 +105,8 @@ function displayWeather(zip){
                     
                     	$("#forecastday"+[i]).html('<h1>'+item.day+'</h1>');
                     	$("#forecastdate"+[i]).html(item.date);
-						$("#forecasthigh"+[i]).html('<span class="badge">'+item.high+"&deg;</span>");
-						$("#forecastlow"+[i]).html('<span class="badge">'+item.low+"&deg;</span>");
+						$("#forecasthigh"+[i]).html('<span class="badge">H '+item.high+"&deg;</span>");
+						$("#forecastlow"+[i]).html('<span class="badge">L '+item.low+"&deg;</span>");
 						$("#forecasttext"+[i]).html(item.text);
 						$("#forecastcode"+[i]).html('<img class="forecast-img" src="images/forecast/'+item.code+'.png">');
                 }
