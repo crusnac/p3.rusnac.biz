@@ -28,13 +28,22 @@
      
      .page-header h1 {font-size: 350%;}
      
+     #error {margin-top: 10px;}
+     
+     .close {color: #fff;
+	     text-shadow: none;
+     }
+     
+     .alert {margin-bottom: 0px;}
+     
      </style>
      </head>
      
      
      
     <body>
-        <div class="error alert alert-danger">Sorry, the zip code that you entered is not correct. <a href="#" data-toggle="modal" data-target="#myModal">Please try another Zip Code</a></div>
+    
+		<div id="system-error"></div>
 
   
     <div class="container">
@@ -50,6 +59,8 @@
 
 			</div>
 	   <span class="label label-success">Not located in <span class="city empty"></span> <span class="state empty"></span>? <a href="#" data-toggle="modal" data-target="#myModal">Display weather for another zip code</a></small></span>
+	   
+
 	    
 	    <br /><br />
 
@@ -150,6 +161,8 @@
       <div class="modal-body">
       
 					 <input type="text" id="zipcode" class="form-control" placeholder="Ex. 97045">
+    	   	<div id="error"></div>
+
 
       </div>
       <div class="modal-footer">

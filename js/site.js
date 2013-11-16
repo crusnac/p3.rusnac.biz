@@ -26,11 +26,29 @@ $(document).ready(function(){
 	
 
 	//Pass the input as a variable.
-	$("#weatherSubmit").click(function(){
+	$("#weatherSubmit").click(function(){		
 		
 		//Set main zip variable based upon user input		
 		var zip = $('#zipcode').val();
 		
+		//Validate proper zipcode
+		var reg = /^[0-9]+$/;
+		
+		if (zip == ''){
+			$("#error").html('<div class="alert alert-danger fade in"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>A Zip Code is Required. Please enter in valid Zip Code.</div>');
+			
+			return false;
+			
+		} 
+		
+		if((zip.length)< 5 || (zip.length)>5 ){
+			$("#error").html('<div class="alert alert-danger fade in"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Please enter in a valid zip code! Ex. 97045</div>');
+			
+			return false;
+			
+		} 
+		
+				
 		//Update ZipCode Cookie to save state of which zipcode has been entered - expired 7 days
 		$.cookie("zipcode", zip, { expires: 7 });
 
@@ -63,10 +81,7 @@ function displayWeather(zip){
 	
 		//Go through JSON and 		
 		$.getJSON(query, function(data){
-		
-				//Fade in slowly 
-				$(".container").fadeIn("slow");
-				
+						
 				//Check to make sure zipcode is valid based upon 
 				if (("City not found" === data.query.results.channel.item.title) || data === []) {
 					processError();
@@ -102,12 +117,15 @@ function displayWeather(zip){
 
 //Display error message if the zipcode is wrong or if the return array is empty.
 function processError(){
-
-	$(".error").show();
-	$(".container").fadeOut("slow");
-
+		
 	
-	//Return and displauy Default zip code
+	//Display Error
+	$("#system-error").html('<div class="alert alert-danger fade in"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Hmm.. that location doesn\'t exsit! Try entering in a new zip code from a valid location.</div>').delay(5000).fadeOut('slow');
+	
+	//Set a default zipcode
+	var zip = "02138";
+	
+	//Return and display Default zip code with a user error message.
 	displayWeather(zip);
 		
 }//End of function		
