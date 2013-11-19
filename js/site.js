@@ -86,6 +86,8 @@ function displayWeather(zip) {
         //Check to make sure zipcode is valid based upon 
         if (("City not found" === data.query.results.channel.item.title) || data === []) {
             processError();
+            
+            return false;
         }
 
         //Empty and get ready for a new submission
@@ -129,4 +131,4 @@ function processError() {
     //Return and display Default zip code with a user error message.
     displayWeather(zip);
 
-} //End of function		
+} //End of function
