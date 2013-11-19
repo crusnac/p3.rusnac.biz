@@ -1,228 +1,145 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Weather App! | Weather Provided by Yahoo!</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap -->
-    <!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-
-
-
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-     
-     <style>
-     
-     .forecast-img {height: 60px; width: 60px;}
-     .forecast-img-main {background-color: #fff;}
-     .table>tbody>tr>td {vertical-align: middle !important;}
-     
-     
-     
-     .error a {color: #fff; border-bottom: 1px dotted;}
-     .error a:hover {text-decoration: none; border-bottom: 1px solid;}
-     
-     .page-header h1 {font-size: 350%;}
-     .page-header {border-bottom: none;}
-     
-     #error {margin-top: 10px;}
-     
-     .close {color: #fff;
-	     text-shadow: none;
-     }
-     
-     .alert {margin-bottom: 0px;}
-     
-     .modal-title {font-weight: 700;}
-     
-    .modal-header {
-	    background-color: #007fff;
-	    color: #fff;
-	    
-    }
-    
-    .row.styled {
-	    
-	    border-bottom: #f1f1f1 1px solid;
-    }
-    
-    .row h1 {
-	    margin-top: 10px;
-    }
-    
-    #forecastdate0, #forecastdate1, #forecastdate2, #forecastdate3, #forecastdate4 {
-	    padding-top: 20px;
-    }
-    
-    #forecasthigh0, #forecasthigh1, #forecasthigh2, #forecasthigh3, #forecasthigh4 {
-	    padding-top: 20px;
-    }
-    
-    #forecastlow0, #forecastlow1, #forecastlow2, #forecastlow3, #forecastlow4 {
-	    padding-top: 20px;
-    }
-    
-    #forecasttext0, #forecasttext1, #forecasttext2, #forecasttext3, #forecasttext4 {
-	    padding-top: 20px;
-    }
-    
-    .location {
-	    background-color: #3fb618;
-	    color: #fff;
-	    font-size: 12px;
-	    padding: 10px;
-    }
-    
-    	.location a {color: #fff; border-bottom: 1px dotted; font-weight: 700;}
-     .location a:hover {text-decoration: none; border-bottom: 1px solid;}
-    
-    
-     
-     </style>
-     </head>
-     
-     
-     
-    <body>
-    
+	<head>
+		<title>Weather App! | Weather Provided by Yahoo!</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<!-- Latest Bootstrap compiled and minified CSS -->
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/style.css">
+		
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+		<![endif]-->
+		
+	</head>
+	<body>
+	
+		<!-- Display Error -->
 		<div id="system-error"></div>
-
-  
-    <div class="container">
-    
-       
-    	    
-	    <div class="row">
-	    <div class="page-header">
-	    
-		    <div class="col-md-9">
-		    	<h1><span class="city"></span> <span class="state"></span> <span id="temp"></span> <small>/ <span id="text"></span></small></h1>
-		    </div>
-		    
-		    <div class="col-md-3">
-		    	<div class="pull-right"><span id="condition"></span></div>
-		    </div>
-	    
-	    </div>
-	    </div>	
-		<div class="row">
-			<div class="col-md-6">
-				<div class="location">
-				
-					Not located in <em><span class="city empty"></span> <span class="state empty"></span></em>? <a href="#" data-toggle="modal" data-target="#myModal">Search your Zip Code!</a></small>
+		<!-- // Display Error -->
+		
+		<div class="container">
+			<div class="row">
+				<div class="page-header">
+					
+					<!-- Display City, State and Temp. -->
+					<div class="col-md-9">
+						<h1><span class="city"></span> <span class="state"></span> <span id="temp"></span> <small>/ <span id="text"></span></small></h1>
+					</div>
+					<!-- // Display City, State and Temp. -->
+					
+					<!-- Display Condition Image -->
+					<div class="col-md-3">
+						<div class="pull-right"><span id="condition"></span></div>
+					</div>
+					<!-- // Display Condition Image -->
+					
 				</div>
-		   
-		   </div>
-	   </div>
-	   
-
-
-	    
-	    
-	    <div class="panel panel-default">
-	    
-	    <div class="panel-heading"><h4>5 Day Forecast</h4></div>
-	    <div class="panel-body">
-	    
-	    
-			<div class="row styled">
-	    	
-	    		<div id="forecastday0" class="col-md-3"></div>
-	    		<div id="forecastdate0" class="col-xs-2 col-md-3"></div>
-	    		<div id="forecasthigh0" class="col-xs-2 col-md-1"></div>
-	    		<div id="forecastlow0" class="col-xs-4 col-md-1"></div>
-	    		<div id="forecasttext0" class="col-xs-4 col-md-2"></div>
-	    		<div id="forecastcode0" class="col-xs-4 col-md-2"></div>
-	    	
 			</div>
-	    
-	     	<div class="row styled">
-	    		<div id="forecastday1" class="col-md-3"></div>
-	    		<div id="forecastdate1" class="col-xs-2 col-md-3"></div>
-	    		<div id="forecasthigh1" class="col-xs-2 col-md-1"></div>
-	    		<div id="forecastlow1" class="col-xs-4 col-md-1"></div>
-	    		<div id="forecasttext1" class="col-xs-4 col-md-2"></div>
-	    		<div id="forecastcode1" class="col-xs-4 col-md-2"></div>
-	    	</div>
-	    
-			<div class="row styled">
-	    		<div id="forecastday2" class="col-md-3"></div>
-	    		<div id="forecastdate2" class="col-xs-2 col-md-3"></div>
-	    		<div id="forecasthigh2" class="col-xs-2 col-md-1"></div>
-	    		<div id="forecastlow2" class="col-xs-4 col-md-1"></div>
-	    		<div id="forecasttext2" class="col-xs-4 col-md-2"></div>
-	    		<div id="forecastcode2" class="col-xs-4 col-md-2"></div>
-	    	</div>
-	    	
-			<div class="row styled">
-	    		<div id="forecastday3" class="col-md-3"></div>
-	    		<div id="forecastdate3" class="col-xs-2 col-md-3"></div>
-	    		<div id="forecasthigh3" class="col-xs-2 col-md-1"></div>
-	    		<div id="forecastlow3" class="col-xs-4 col-md-1"></div>
-	    		<div id="forecasttext3" class="col-xs-4 col-md-2"></div>
-	    		<div id="forecastcode3" class="col-xs-4 col-md-2"></div>
-	    	</div>
-	    	
-			<div class="row styled">
-	    		<div id="forecastday4" class="col-md-3"></div>
-	    		<div id="forecastdate4" class="col-xs-2 col-md-3"></div>
-	    		<div id="forecasthigh4" class="col-xs-2 col-md-1"></div>
-	    		<div id="forecastlow4" class="col-xs-4 col-md-1"></div>
-	    		<div id="forecasttext4" class="col-xs-4 col-md-2"></div>
-	    		<div id="forecastcode4" class="col-xs-4 col-md-2"></div>
-	    	</div>
-	    
-	    
-	    
-	    
+			
+			<!-- Change Location -->
+			<div class="row">
+				<div class="col-md-6">
+					<div class="location">
+						Not located in <em><span class="city empty"></span> <span class="state empty"></span></em>? <a href="#" data-toggle="modal" data-target="#myModal">Search your Zip Code!</a></span>
+					</div>
+				</div>
+			</div>
+			<!-- // Change Location -->
+			
+			
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4>5 Day Forecast</h4>
+				</div>
+				
+				<!-- 5 Day Forecast -->
+				<div class="panel-body">
+					<div class="row styled">
+						<div id="forecastday0" class="col-md-3"></div>
+						<div id="forecastdate0" class="col-xs-2 col-md-3"></div>
+						<div id="forecasthigh0" class="col-xs-2 col-md-1"></div>
+						<div id="forecastlow0" class="col-xs-4 col-md-1"></div>
+						<div id="forecasttext0" class="col-xs-4 col-md-2"></div>
+						<div id="forecastcode0" class="col-xs-4 col-md-2"></div>
+					</div>
+					<div class="row styled">
+						<div id="forecastday1" class="col-md-3"></div>
+						<div id="forecastdate1" class="col-xs-2 col-md-3"></div>
+						<div id="forecasthigh1" class="col-xs-2 col-md-1"></div>
+						<div id="forecastlow1" class="col-xs-4 col-md-1"></div>
+						<div id="forecasttext1" class="col-xs-4 col-md-2"></div>
+						<div id="forecastcode1" class="col-xs-4 col-md-2"></div>
+					</div>
+					<div class="row styled">
+						<div id="forecastday2" class="col-md-3"></div>
+						<div id="forecastdate2" class="col-xs-2 col-md-3"></div>
+						<div id="forecasthigh2" class="col-xs-2 col-md-1"></div>
+						<div id="forecastlow2" class="col-xs-4 col-md-1"></div>
+						<div id="forecasttext2" class="col-xs-4 col-md-2"></div>
+						<div id="forecastcode2" class="col-xs-4 col-md-2"></div>
+					</div>
+					<div class="row styled">
+						<div id="forecastday3" class="col-md-3"></div>
+						<div id="forecastdate3" class="col-xs-2 col-md-3"></div>
+						<div id="forecasthigh3" class="col-xs-2 col-md-1"></div>
+						<div id="forecastlow3" class="col-xs-4 col-md-1"></div>
+						<div id="forecasttext3" class="col-xs-4 col-md-2"></div>
+						<div id="forecastcode3" class="col-xs-4 col-md-2"></div>
+					</div>
+					<div class="row styled">
+						<div id="forecastday4" class="col-md-3"></div>
+						<div id="forecastdate4" class="col-xs-2 col-md-3"></div>
+						<div id="forecasthigh4" class="col-xs-2 col-md-1"></div>
+						<div id="forecastlow4" class="col-xs-4 col-md-1"></div>
+						<div id="forecasttext4" class="col-xs-4 col-md-2"></div>
+						<div id="forecastcode4" class="col-xs-4 col-md-2"></div>
+					</div>
+				</div>
+				<!-- // 5 Day Forecast -->
+				
+				<!-- Footer -->
+				<div class="panel-footer">
+					<span class="muted"><small><strong>Weather provide by:</strong> Yahoo! | Weather App is a project application for <a href="http://www.extension.harvard.edu/courses/dynamic-web-applications" target="_blank">Harvard University / CSIE-15</a> - <strong>Professor:</strong> Susan Buck - <strong>Build by:</strong> Claudiu Rusnac</small></span>
+				</div>
+				<!-- // Footer -->
+				
+			</div>
+		</div>
 		
 		
-	    </div>
-
-		<div class="panel-footer"><span class="muted"><small><strong>Weather provide by:</strong> Yahoo! | Weather App is a project application for <a href="http://www.extension.harvard.edu/courses/dynamic-web-applications" target="_blank">Harvard University / CSIE-15</a> - <strong>Professor:</strong> Susan Buck - <strong>Build by:</strong> Claudiu Rusnac</small></span></div>
-	    </div>
-
-	    	
-	    	
-	    </div>
-	    
-	    
-	    
-    </div>
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Enter in your Zip Code</h4>
-      </div>
-      <div class="modal-body">
-      
-					 <input type="text" id="zipcode" class="form-control" placeholder="Ex. 97045">
-    	   	<div id="error"></div>
-
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" id="weatherSubmit" data-dismiss="modal" class="btn btn-primary">Search Weather</button>
-        </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-
-	 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
-	<script src="js/jquery.cookie.js"></script>
-	<script src="js/site.js"></script>
-
-  </body>
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="myModalLabel">Enter in your Zip Code</h4>
+					</div>
+					<div class="modal-body">
+						<input type="text" id="zipcode" class="form-control" placeholder="Ex. 97045">
+						<div id="error"></div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" id="weatherSubmit" data-dismiss="modal" class="btn btn-primary">Search Weather</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- /.modal -->
+		
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+		<script src="js/jquery.cookie.js"></script>
+		<script src="js/site.js"></script>
+	</body>
 </html>
