@@ -49,9 +49,7 @@ $(document).ready(function () {
 
 
         //Update ZipCode Cookie to save state of which zipcode has been entered - expired 7 days
-        $.cookie("zipcode", zip, {
-            expires: 7
-        });
+        $.cookie("zipcode", zip, { expires: 7 });
 
         //Send user input to function 
         displayWeather($('#zipcode').val());
@@ -86,6 +84,9 @@ function displayWeather(zip) {
         //Check to make sure zipcode is valid based upon 
         if (("City not found" === data.query.results.channel.item.title) || data === []) {
             processError();
+            
+            //Set new cookie as a default
+            $.cookie("zipcode", zip, { expires: 7 });
             
             return false;
         }
