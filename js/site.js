@@ -84,6 +84,8 @@ function displayWeather(zip) {
         //Check to make sure zipcode is valid based upon 
         if (("City not found" === data.query.results.channel.item.title) || data === []) {
             
+            var zip = "02138";
+            
             //Set new cookie as a default
             $.cookie("zipcode", zip, { expires: 7 });
             
